@@ -1,3 +1,22 @@
 {
   "keys": []
 }
+```
+4. Commit the file
+
+## **Step 6: Update Keys**
+
+When you generate keys on your website:
+1. Click **"Export Keys"** button
+2. Open the downloaded JSON file
+3. Copy the `"keys"` array
+4. Go to your `keys.json` file on GitHub
+5. Click the **pencil icon** (Edit)
+6. Paste your keys
+7. Commit changes
+
+## **Raw URL for Roblox Scripts**
+
+Use this URL in your Lua scripts:
+```
+https://raw.githubusercontent.com/YOUR-USERNAME/x-free-keygen/main/keys.json
