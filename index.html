@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>X-FREE KEY GEN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      min-height: 100vh;
+    }
+
+    .glow-card {
+      background: linear-gradient(145deg, #1e1e1e, #252525);
+      border: 1px solid #333;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .glow-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 48px rgba(255, 102, 0, 0.2);
+    }
+
+    .key-display {
+      background: #0a0a0a;
+      border: 2px solid #ff6600;
+      padding: 15px;
+      border-radius: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+      color: #ff6600;
+      text-align: center;
+      letter-spacing: 2px;
+      word-break: break-all;
+    }
+
+    .btn-generate {
+      background: linear-gradient(135deg, #ff6600 0%, #ff8833 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-generate:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(255, 102, 0, 0.4);
+    }
+
+    .btn-generate:active {
+      transform: scale(0.98);
+    }
+
+    .stats-badge {
+      background: rgba(255, 102, 0, 0.1);
+      border: 1px solid #ff6600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 5px;
+    }
+
+    .key-list-item {
+      background: #1a1a1a;
+      border-left: 3px solid #ff6600;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .key-list-item:hover {
+      background: #222;
+      transform: translateX(5px);
+    }
+
+    .pulse-dot {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .code-block {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #c9d1d9;
+      overflow-x: auto;
+    }
+
+    .usage-log {
+      background: #0a0a0a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .usage-entry {
+      padding: 8px;
+      margin: 4px 0;
+      background: #1a1a1a;
+      border-radius: 4px;
+      border-left: 3px solid #4CAF50;
+    }
+
+    .hwid-badge {
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid #4CAF50;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+
+<body class="text-white">
+  <!-- Header -->
+  <nav class="bg-[#1a1a1a] border-b border-[#333] py-4 px-6 md:px-20">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="https://cdn.discordapp.com/attachments/1385041743111782490/1434508499454529646/New_Project.png?ex=6917bee6&is=69166d66&hm=77fcdfbb5b37d06c5566d404c1cf81ae715f23854c13d36dc33d7fedb5760df3&" alt="Logo" class="w-10 h-10 rounded-lg">
+        <div>
+          <h1 class="text-2xl font-bold text-white">X-FREE KEY GEN</h1>
+          <p class="text-xs text-gray-400">Secure Key Generation & Authentication</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-3">
+        <span class="pulse-dot w-3 h-3 bg-green-500 rounded-full"></span>
+        <span class="text-sm text-gray-400">System Active</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8 max-w-6xl">
+    
+    <!-- Key Generator Section -->
+    <div class="glow-card rounded-2xl p-8 mb-8">
+      <h2 class="text-3xl font-bold mb-2 text-center">🔑 Generate Your Key</h2>
+      <p class="text-gray-400 text-center mb-6">Create a unique authentication key for your Roblox scripts</p>
+      
+      <div class="max-w-2xl mx-auto">
+        <!-- Username Input -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium mb-2 text-gray-300">Username (Optional):</label>
+          <input 
+            type="text" 
+            id="usernameInput" 
+            placeholder="Enter your username"
+            class="w-full px-4 py-3 bg-[#0a0a0a] border border-[#333] rounded-lg text-white focus:outline-none focus:border-[#ff6600] transition"
+          />
+        </div>
+
+        <!-- Expiry Selection -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium mb-2 text-gray-300">Key Expiry:</label>
+          <select id="expirySelect" class="w-full px-4 py-3 bg-[#0a0a0a] border border-[#333] rounded-lg text-white focus:outline-none focus:border-[#ff6600] transition">
+            <option value="24">24 Hours</option>
+            <option value="168">7 Days</option>
+            <option value="720">30 Days</option>
+            <option value="0">Never Expires</option>
+          </select>
+        </div>
+
+        <!-- Generate Button -->
+        <button onclick="generateKey()" class="btn-generate w-full py-4 rounded-lg text-white font-bold text-lg">
+          Generate New Key
+        </button>
+
+        <!-- Export Button -->
+        <div class="mt-4">
+          <button onclick="exportKeys()" class="w-full py-3 bg-[#222] hover:bg-[#333] rounded-lg text-white font-medium transition">
+            💾 Export Keys
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+      <div class="glow-card rounded-xl p-6 text-center">
+        <div class="text-4xl font-bold text-[#ff6600]" id="totalKeys">0</div>
+        <div class="text-sm text-gray-400 mt-2">Total Keys</div>
+      </div>
+      <div class="glow-card rounded-xl p-6 text-center">
+        <div class="text-4xl font-bold text-green-500" id="activeKeys">0</div>
+        <div class="text-sm text-gray-400 mt-2">Active Keys</div>
+      </div>
+      <div class="glow-card rounded-xl p-6 text-center">
+        <div class="text-4xl font-bold text-yellow-500" id="expiringKeys">0</div>
+        <div class="text-sm text-gray-400 mt-2">Expiring Soon</div>
+      </div>
+      <div class="glow-card rounded-xl p-6 text-center">
+        <div class="text-4xl font-bold text-red-500" id="expiredKeys">0</div>
+        <div class="text-sm text-gray-400 mt-2">Expired Keys</div>
+      </div>
+    </div>
+
+    <!-- Generated Keys List -->
+    <div class="glow-card rounded-2xl p-8 mb-8">
+      <h2 class="text-2xl font-bold mb-4">📜 Generated Keys History</h2>
+      <div id="keysList" class="max-h-96 overflow-y-auto">
+        <p class="text-gray-500 text-center py-8">No keys generated yet. Click "Generate New Key" to start.</p>
+      </div>
+    </div>
+
+    <!-- Implementation Guide -->
+    <div class="glow-card rounded-2xl p-8">
+      <h2 class="text-2xl font-bold mb-4">🔧 Implementation Guide</h2>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-3 text-[#ff6600]">Step 1: Host Your Keys on GitHub</h3>
+        <p class="text-gray-400 mb-3">Create a JSON file in your GitHub repository (e.g., <code class="bg-[#0a0a0a] px-2 py-1 rounded">keys.json</code>):</p>
+        <div class="code-block">
+{
+  "keys": [
+    "X-FREEKEYSHERE",
+    "X-ANOTHERKEY123"
+  ]
+}</div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-3 text-[#ff6600]">Step 2: Roblox Script Authentication</h3>
+        <p class="text-gray-400 mb-3">Add this Lua code to your Roblox script:</p>
+        <div class="code-block">
+local HttpService = game:GetService("HttpService")
+
+-- Your GitHub raw URL
+local KEY_URL = "https://raw.githubusercontent.com/USERNAME/REPO/main/keys.json"
+
+-- Function to verify key
+local function verifyKey(userKey)
+    local success, response = pcall(function()
+        return HttpService:GetAsync(KEY_URL)
+    end)
+    
+    if success then
+        local data = HttpService:JSONDecode(response)
+        for _, validKey in pairs(data.keys) do
+            if validKey == userKey then
+                return true
+            end
+        end
+    end
+    return false
+end
+
+-- Example usage
+local playerKey = "X-FREEKEYSHERE" -- Get this from player input
+
+if verifyKey(playerKey) then
+    print("✅ Key verified! Script activated.")
+    -- Your script code here
+else
+    print("❌ Invalid key!")
+    -- Kick player or show error
+end</div>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold mb-3 text-[#ff6600]">Step 3: Update Keys</h3>
+        <p class="text-gray-400">Use the "Export Keys" button to download your keys as JSON, then upload to your GitHub repository.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-gray-500 border-t border-[#333] mt-12">
+    © 2025 X-FREE KEY GEN. Secure authentication for your Roblox scripts.
+  </footer>
+
+  <script>
+    let keysDatabase = [];
+
+    function generateKey() {
+      const username = document.getElementById('usernameInput').value || 'User';
+      const expiry = parseInt(document.getElementById('expirySelect').value);
+      
+      // Generate key in format X-XXXXXXXXXX
+      const randomPart = Array.from({length: 10}, () => 
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[Math.floor(Math.random() * 36)]
+      ).join('');
+      
+      const newKey = `X-${randomPart}`;
+      
+      // Calculate expiry date
+      const createdAt = new Date();
+      const expiresAt = expiry === 0 ? null : new Date(createdAt.getTime() + expiry * 60 * 60 * 1000);
+      
+      // Add to database
+      const keyObject = {
+        key: newKey,
+        username: username,
+        createdAt: createdAt.toISOString(),
+        expiresAt: expiresAt ? expiresAt.toISOString() : 'Never',
+        isActive: true
+      };
+      
+      keysDatabase.unshift(keyObject);
+      
+      // Update display
+      updateKeysList();
+      updateStats();
+      
+      // Show success message
+      showNotification('Key generated successfully!');
+    }
+
+    function copyKey(key) {
+      navigator.clipboard.writeText(key).then(() => {
+        showNotification('Key copied to clipboard!');
+      });
+    }
+
+    function exportKeys() {
+      if (keysDatabase.length === 0) {
+        showNotification('No keys to export!', 'error');
+        return;
+      }
+      
+      const exportData = {
+        keys: keysDatabase.map(k => k.key),
+        fullData: keysDatabase
+      };
+      
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `x-free-keys-${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      
+      showNotification('Keys exported successfully!');
+    }
+
+    function updateKeysList() {
+      const keysList = document.getElementById('keysList');
+      
+      if (keysDatabase.length === 0) {
+        keysList.innerHTML = '<p class="text-gray-500 text-center py-8">No keys generated yet. Click "Generate New Key" to start.</p>';
+        return;
+      }
+      
+      keysList.innerHTML = keysDatabase.map((keyObj, index) => {
+        const isExpired = keyObj.expiresAt !== 'Never' && new Date(keyObj.expiresAt) < new Date();
+        const statusColor = isExpired ? 'red' : 'green';
+        const statusText = isExpired ? 'Expired' : 'Active';
+        
+        return `
+          <div class="key-list-item">
+            <div class="flex justify-between items-start flex-wrap gap-2">
+              <div class="flex-1 min-w-0">
+                <div class="font-mono text-[#ff6600] font-bold text-lg break-all">${keyObj.key}</div>
+                <div class="text-sm text-gray-400 mt-1">
+                  <span class="mr-4">👤 ${keyObj.username}</span>
+                  <span class="mr-4">📅 ${new Date(keyObj.createdAt).toLocaleDateString()}</span>
+                  <span>⏰ Expires: ${keyObj.expiresAt === 'Never' ? 'Never' : new Date(keyObj.expiresAt).toLocaleDateString()}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-${statusColor}-500 bg-opacity-20 text-${statusColor}-500">
+                  ${statusText}
+                </span>
+                <button onclick="copyKey('${keyObj.key}')" class="px-3 py-1 bg-[#ff6600] bg-opacity-20 hover:bg-opacity-30 text-[#ff6600] rounded text-xs transition">
+                  📋 Copy
+                </button>
+                <button onclick="deleteKey(${index})" class="px-3 py-1 bg-red-500 bg-opacity-20 hover:bg-opacity-30 text-red-500 rounded text-xs transition">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function deleteKey(index) {
+      if (confirm('Are you sure you want to delete this key?')) {
+        keysDatabase.splice(index, 1);
+        updateKeysList();
+        updateStats();
+        showNotification('Key deleted successfully!');
+      }
+    }
+
+    function updateStats() {
+      const now = new Date();
+      const total = keysDatabase.length;
+      const active = keysDatabase.filter(k => 
+        k.expiresAt === 'Never' || new Date(k.expiresAt) > now
+      ).length;
+      const expiring = keysDatabase.filter(k => {
+        if (k.expiresAt === 'Never') return false;
+        const expiryDate = new Date(k.expiresAt);
+        const hoursUntilExpiry = (expiryDate - now) / (1000 * 60 * 60);
+        return hoursUntilExpiry > 0 && hoursUntilExpiry <= 24;
+      }).length;
+      const expired = keysDatabase.filter(k => 
+        k.expiresAt !== 'Never' && new Date(k.expiresAt) <= now
+      ).length;
+      
+      document.getElementById('totalKeys').textContent = total;
+      document.getElementById('activeKeys').textContent = active;
+      document.getElementById('expiringKeys').textContent = expiring;
+      document.getElementById('expiredKeys').textContent = expired;
+    }
+
+    function showNotification(message, type = 'success') {
+      const notification = document.createElement('div');
+      notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg text-white font-medium z-50 transition-all ${
+        type === 'success' ? 'bg-green-500' : 'bg-red-500'
+      }`;
+      notification.textContent = message;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+
+    // Initialize
+    updateStats();
+  </script>
+</body>
+</html>
